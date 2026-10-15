@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    /*Declaração do estilo visual do sistema*/
+    --cor01: #1F3820;
+    --cor02: #DDFADE;
+    --cor03: #929E93;
+    --cor04: #007615;
+
+    /*Cores de atenção*/
+    --amarelo: #FFF1C1;
+    --vermelho: #FF7575;
+    --verde: #007615;
+    --branco: #fff;
+    --preto: #000;
+
+    /*Fontes do sistema*/
+    /*Roboto condensed*/
+    --fontCondensada: "Roboto Condensed", sans-serif;
+    /*Roboto regular*/
+    --fontRegular:  "Roboto", sans-serif;
+}

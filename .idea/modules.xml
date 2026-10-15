@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Programa-Auxilio-Transporte-Universitario.iml" filepath="$PROJECT_DIR$/.idea/Programa-Auxilio-Transporte-Universitario.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TesteDeIntegracaoInteliJ/TesteDeIntegracaoInteliJ.iml" filepath="$PROJECT_DIR$/TesteDeIntegracaoInteliJ/TesteDeIntegracaoInteliJ.iml" />
     </modules>
   </component>
 </project>
