@@ -1,0 +1,3 @@
+print("hello World")
+print("Programa auxílio Transporte Universitário")
+print("Atualização do repositório contendo a estruturação completa das entregas do projeto do Programa Auxílio Transporte Universitário. O progresso engloba:Organização e Gestão (Trello): Acompanhamento contínuo de tarefas, divisão de cartões e mapeamento do fluxo de desenvolvimento do sistema.Documentação e Modelagem: Versionamento dos diagramas de casos de uso, product backlog, requisitos funcionais/não funcionais e modelo relacional.   Arquitetura Base: Configuração inicial das pastas de frontend e backend, além dos primeiros arquivos estruturais para os testes da interface web.")
