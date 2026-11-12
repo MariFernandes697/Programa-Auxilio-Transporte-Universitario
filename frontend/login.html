@@ -1,16 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login | Auxílio Transporte Estudantil – Curiúva</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | Auxílio Transporte Estudantil – Curiúva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-escuro: #1f3d22;
+    --verde-medio: #2d5a31;
+    --verde-claro: #f0fbf0;
+    --cinza-titulo: #7b8a7d;
+    --cinza-texto: #6b6b6b;
+    --borda: #d9e6d9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--cinza-texto);
+    background: #fff;
+  }
+
+  .pagina {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    min-height: 100vh;
+  }
+
+  /* ---------- Painel esquerdo ---------- */
+  .painel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+    background-color: var(--verde-medio);
+    /* efeito de facetas (low-poly) feito só com gradientes */
+    background-image:
+      linear-gradient(135deg, rgba(0,0,0,.28) 0 25%, transparent 25% 100%),
+      linear-gradient(225deg, rgba(255,255,255,.07) 0 30%, transparent 30% 100%),
+      linear-gradient(60deg,  rgba(0,0,0,.20) 0 35%, transparent 35% 100%),
+      linear-gradient(300deg, rgba(255,255,255,.05) 0 40%, transparent 40% 100%),
+      linear-gradient(160deg, #1b3a1f, #2f6234 55%, #17301a);
+  }
+
+  .brasao {
+    width: 250px;
+    height: 250px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,.35));
+  }
+
+  .prefeitura small {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .prefeitura strong {
+    display: block;
+    margin-top: .25rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .descricao {
+    max-width: 280px;
+    font-size: clamp(.8rem, 1.1vw, .95rem);
+    line-height: 1.4;
+    opacity: .92;
+  }
+
+  /* ---------- Painel do formulário ---------- */
+  .form-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .login {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .login h1 {
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--cinza-titulo);
+  }
+
+  .login .sub {
+    margin: .25rem 0 1.75rem;
+    font-size: .85rem;
+  }
+
+  .campo {
+    position: relative;
+    margin-bottom: 1.1rem;
+  }
+
+  .campo svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    fill: #6d7a6e;
+    pointer-events: none;
+  }
+
+  .campo input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px 0 44px;
+    font: inherit;
+    font-size: .95rem;
+    color: #333;
+    background: var(--verde-claro);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.10);
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  .campo input::placeholder { color: #6d7a6e; }
+
+  .campo input:focus {
+    outline: none;
+    border-color: var(--verde-medio);
+    box-shadow: 0 0 0 3px rgba(45,90,49,.25);
+  }
+
+  .btn-entrar {
+    width: 100%;
+    height: 46px;
+    margin-top: .6rem;
+    font: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: var(--verde-escuro);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.25);
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+  }
+
+  .btn-entrar:hover { background: var(--verde-medio); }
+  .btn-entrar:active { transform: translateY(1px); }
+  .btn-entrar:focus-visible { outline: 3px solid rgba(45,90,49,.4); outline-offset: 2px; }
+
+  .links {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: .85rem;
+  }
+
+  .links a { color: inherit; }
+  .links .esqueci { display: inline-block; margin-bottom: 1rem; }
+  .links p a:hover, .links .esqueci:hover { color: var(--verde-medio); }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width: 860px) {
+    .pagina {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+    }
+    .painel {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      padding: 1.5rem 1.25rem;
+      text-align: left;
+    }
+    .descricao { max-width: 100%; flex-basis: 100%; text-align: center; }
+    .brasao { width: 84px; }
+    .form-area { align-items: flex-start; padding: 2rem 1.25rem 3rem; }
+  }
+
+  @media (max-width: 480px) {
+    .painel { justify-content: center; text-align: center; }
+    .prefeitura { flex-basis: 100%; }
+    .brasao { width: 72px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
 </head>
 <body>
+  <main class="pagina">
 
+    <!-- Lado esquerdo -->
+    <section class="painel">
+      <!-- Troque "brasao.png" pelo arquivo do brasão do município -->
+    <img class="brasao" src="assets/brasao curiuva.svg" alt="Brasão do município de Curiúva">
+      <div class="prefeitura">
+        <small>Prefeitura Municipal de</small>
+        <strong>Curiúva</strong>
+      </div>
 
+      <p class="descricao">
+        Solicitação e acompanhamento do Auxílio Transporte Estudantil Municipal
+      </p>
+    </section>
+
+    <!-- Lado direito -->
+    <section class="form-area">
+      <div class="login">
+        <h1>Seja Bem-vindo(a)!</h1>
+        <p class="sub">Faça login para acessar o sistema.</p>
+
+        <form action="#" method="post">
+          <div class="campo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4 0-8 2-8 5v3h16v-3c0-3-4-5-8-5Z"/></svg>
+            <input type="text" name="usuario" placeholder="Usuário" autocomplete="username" aria-label="Usuário" required>
+          </div>
+
+          <div class="campo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2Zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm3-9H9V6a3 3 0 0 1 6 0v2Z"/></svg>
+            <input type="password" name="senha" placeholder="Senha" autocomplete="current-password" aria-label="Senha" required>
+          </div>
+
+          <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+
+        <div class="links">
+          <a href="#" class="esqueci">Esqueci minha senha?</a>
+          <p>Ainda não é cadastrado? <a href="#">Cadastre-se aqui.</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </body>
 </html>

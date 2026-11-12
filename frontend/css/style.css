@@ -1,22 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-:root{
-    /*Declaração do estilo visual do sistema*/
-    --cor01: #1F3820;
-    --cor02: #DDFADE;
-    --cor03: #929E93;
-    --cor04: #007615;
+/* ==========================================
+   PADRÃO GLOBAL DE SOMBRAS E CAIXAS (BOXES)
+   ========================================== */
 
-    /*Cores de atenção*/
-    --amarelo: #FFF1C1;
-    --vermelho: #FF7575;
-    --verde: #007615;
-    --branco: #fff;
-    --preto: #000;
+/* Sombra padrão reutilizável para todas as caixas/cards do sistema */
+.box-padrao, .card-status, .info-card, .login-container, .form-section {
+    background-color: var(--branco);
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(31, 56, 32, 0.05); /* Sombra suave padrão baseada na cor institucional */
+    transition: all 0.25s ease;
+}
 
-    /*Fontes do sistema*/
-    /*Roboto condensed*/
-    --fontCondensada: "Roboto Condensed", sans-serif;
-    /*Roboto regular*/
-    --fontRegular:  "Roboto", sans-serif;
+/* Efeito subtil ao passar o rato (hover) para manter interatividade consistente */
+.card-status:hover, .info-card:hover {
+    box-shadow: 0 6px 16px rgba(31, 56, 32, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Padronização universal para os inputs de todas as telas */
+input[type="text"], input[type="password"], input[type="email"], select {
+    width: 100%;
+    padding: 14px 18px;
+    background-color: #f7fbf8;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+/* Foco unificado com a cor de destaque do sistema (--cor04 / --cor01) */
+input:focus, select:focus {
+    border-color: var(--cor04);
+    background-color: var(--branco);
+    box-shadow: 0 0 0 3px rgba(0, 118, 21, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.02);
 }
