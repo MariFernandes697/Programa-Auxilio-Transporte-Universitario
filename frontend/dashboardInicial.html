@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | Auxílio Transporte Estudantil – Curiúva</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cor01: #1F3820;
+            --cor02: #DDFADE;
+            --cor03: #929E93;
+            --cor04: #007615;
+            --branco: #fff;
+            --preto: #000;
+            --fontCondensada: "Roboto Condensed", sans-serif;
+            --fontRegular: "Roboto", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--fontRegular);
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            background-color: #fafbfc;
+            overflow: hidden;
+        }
+
+        /* Menu Lateral (Sidebar) */
+        .sidebar {
+            width: 280px;
+            background-color: var(--branco);
+            border-right: 1px solid #e1e8ed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 20px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .brasao-menu {
+            width: 75px;
+            height: auto;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 18px;
+            color: var(--cor03);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item i {
+            font-size: 1.1rem;
+        }
+
+        .nav-item:hover {
+            background-color: #f0f7f1;
+            color: var(--cor04);
+        }
+
+        /* Item Ativo (Início selecionado) */
+        .nav-item.active {
+            background-color: var(--cor02);
+            color: var(--cor01);
+            font-weight: 600;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid #e1e8ed;
+            padding-top: 15px;
+        }
+
+        .nav-item.logout:hover {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+
+        /* Área de Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            padding: 50px 60px;
+            overflow-y: auto;
+        }
+
+        .content-header h1 {
+            font-family: var(--fontCondensada);
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .content-header p {
+            color: var(--cor03);
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+        }
+
+        /* Card Principal de Status ("Em análise") */
+        .card-status {
+            background-color: var(--branco);
+            border: 1px solid #eaeaea;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+
+        .status-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .status-icon-wrapper {
+            width: 65px;
+            height: 65px;
+            background-color: #72d98d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status-letter {
+            color: var(--branco);
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: var(--fontCondensada);
+        }
+
+        .status-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .status-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #58a56c;
+            margin-bottom: 6px;
+            font-family: var(--fontCondensada);
+        }
+
+        .status-desc {
+            color: #7f8c8d;
+            font-size: 0.88rem;
+            max-width: 480px;
+            line-height: 1.4;
+        }
+
+        .status-arrow {
+            font-size: 1.3rem;
+            color: var(--cor03);
+            padding-right: 15px;
+        }
+
+        /* Grid para os Cards Inferiores */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+        }
+
+        .info-card {
+            background-color: var(--branco);
+            border: 1px solid #eaeaea;
+            border-radius: 16px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .info-card-icon {
+            font-size: 1.4rem;
+            color: var(--cor03);
+            margin-bottom: 5px;
+        }
+
+        .info-card-label {
+            font-size: 0.9rem;
+            color: var(--cor03);
+            font-weight: 500;
+        }
+
+        .info-card-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            font-family: var(--fontCondensada);
+        }
+
+        .status-complete {
+            color: #7f8c8d;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+            }
+            .sidebar-logo, .sidebar-footer {
+                display: none;
+            }
+            .sidebar-nav {
+                flex-direction: row;
+                gap: 5px;
+            }
+            .nav-item {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .main-content {
+                padding: 25px 20px;
+            }
+            .card-status {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .status-arrow {
+                display: none;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/brasao curiuva.svg" alt="Brasão de Curiúva" class="brasao-menu">
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="inicio.html" class="nav-item active">
+                <i class="fa-solid fa-house"></i> Início
+            </a>
+            <a href="solicitacao.html" class="nav-item">
+                <i class="fa-solid fa-file-pen"></i> Solicitações
+            </a>
+            <a href="documentos.html" class="nav-item">
+                <i class="fa-solid fa-folder-open"></i> Documentos
+            </a>
+            <a href="perfil.html" class="nav-item">
+                <i class="fa-solid fa-user"></i> Perfil
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-item logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="content-header">
+            <h1>Olá, Estudante!</h1>
+            <p>Acompanhe aqui as suas solicitações.</p>
+        </header>
+
+        <section class="card-status">
+            <div class="status-left">
+                <div class="status-icon-wrapper">
+                    <span class="status-letter">L</span>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">Situação da solicitação</span>
+                    <h2 class="status-title">Em análise</h2>
+                    <p class="status-desc">Sua solicitação está sendo analisada pela Secretaria Municipal da Educação.</p>
+                </div>
+            </div>
+            <div class="status-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </section>
+
+        <div class="cards-grid">
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <span class="info-card-label">Próxima atualização</span>
+                <span class="info-card-value">Janeiro/2027</span>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <i class="fa-solid fa-folder"></i>
+                </div>
+                <span class="info-card-label">Documentação</span>
+                <span class="info-card-value">Status: <span class="status-complete">Completa</span></span>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

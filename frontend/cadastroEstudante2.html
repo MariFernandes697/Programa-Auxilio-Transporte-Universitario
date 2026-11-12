@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação | Auxílio Transporte Estudantil – Curiúva</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cor01: #1F3820;
+            --cor02: #DDFADE;
+            --cor03: #929E93;
+            --cor04: #007615;
+            --branco: #fff;
+            --preto: #000;
+            --fontCondensada: "Roboto Condensed", sans-serif;
+            --fontRegular: "Roboto", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--fontRegular);
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            background-color: #fafbfc;
+            overflow: hidden;
+        }
+
+        /* Menu Lateral (Sidebar) */
+        .sidebar {
+            width: 280px;
+            background-color: var(--branco);
+            border-right: 1px solid #e1e8ed;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 20px;
+        }
+
+        .sidebar-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .brasao-menu {
+            width: 75px;
+            height: auto;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 18px;
+            color: var(--cor03);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item i {
+            font-size: 1.1rem;
+        }
+
+        .nav-item:hover {
+            background-color: #f0f7f1;
+            color: var(--cor04);
+        }
+
+        /* Item Ativo (Solicitações selecionado) */
+        .nav-item.active {
+            background-color: var(--cor02);
+            color: var(--cor01);
+            font-weight: 600;
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid #e1e8ed;
+            padding-top: 15px;
+        }
+
+        .nav-item.logout:hover {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+
+        /* Área de Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            padding: 40px 60px;
+            overflow-y: auto;
+        }
+
+        .content-header h1 {
+            font-family: var(--fontCondensada);
+            font-size: 2.2rem;
+            color: #555d56;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .content-header p {
+            color: var(--cor03);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* Barra de Progresso em Passos (Steps) */
+        .steps-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 700px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--cor03);
+            background-color: var(--branco);
+            color: var(--cor03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-family: var(--fontCondensada);
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .step-label {
+            font-size: 0.82rem;
+            color: var(--cor03);
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Estados dos Passos */
+        .step-wrapper.completed .step-circle {
+            border-color: var(--cor01);
+            background-color: var(--cor01);
+            color: var(--branco);
+        }
+        .step-wrapper.completed .step-label {
+            color: var(--cor01);
+            font-weight: 600;
+        }
+
+        .step-wrapper.active .step-circle {
+            border-color: var(--cor01);
+            background-color: var(--cor01);
+            color: var(--branco);
+            box-shadow: 0 0 0 4px rgba(31, 56, 32, 0.15);
+        }
+        .step-wrapper.active .step-label {
+            color: var(--cor01);
+            font-weight: 700;
+        }
+
+        .step-line {
+            flex: 1;
+            height: 2px;
+            background-color: #d1d8d2;
+            margin: 0 -15px 25px -15px;
+            z-index: 1;
+        }
+
+        .step-line.active-line {
+            background-color: var(--cor01);
+        }
+
+        /* Seção do Formulário */
+        .form-section-title {
+            font-family: var(--fontCondensada);
+            font-size: 1.6rem;
+            color: #555d56;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            background-color: #f7fbf8;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #929E93;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--cor04);
+            background-color: var(--branco);
+            box-shadow: 0 0 0 3px rgba(0, 118, 21, 0.08);
+        }
+
+        .form-group i.input-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cor03);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        /* Botões de Navegação Inferiores */
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            max-width: 900px;
+        }
+
+        .btn-voltar {
+            padding: 12px 28px;
+            background-color: var(--branco);
+            color: #2c3e50;
+            border: 1px solid #d1d8d2;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-voltar:hover {
+            background-color: #f0f3f1;
+        }
+
+        .btn-avancar {
+            padding: 12px 32px;
+            background-color: var(--cor01);
+            color: var(--branco);
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s ease;
+            box-shadow: 0 4px 10px rgba(31, 56, 32, 0.2);
+        }
+
+        .btn-avancar:hover {
+            background-color: var(--cor04);
+        }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps-container {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+            }
+            .sidebar-logo, .sidebar-footer {
+                display: none;
+            }
+            .sidebar-nav {
+                flex-direction: row;
+                gap: 5px;
+            }
+            .nav-item {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .main-content {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Lateral (Sidebar) -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="assets/brasao curiuva.svg" alt="Brasão de Curiúva" class="brasao-menu" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e5/BrasaoCuriuvaParana.png'">
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="inicio.html" class="nav-item">
+                <i class="fa-solid fa-house"></i> Início
+            </a>
+            <a href="solicitacao.html" class="nav-item active">
+                <i class="fa-solid fa-file-pen"></i> Solicitações
+            </a>
+            <a href="documentos.html" class="nav-item">
+                <i class="fa-solid fa-folder-open"></i> Documentos
+            </a>
+            <a href="perfil.html" class="nav-item">
+                <i class="fa-solid fa-user"></i> Perfil
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="nav-item logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </a>
+        </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <header class="content-header">
+            <h1>Solicitação Estudantil</h1>
+            <p>Preencha os campos solicitados abaixo para solicitar seu Auxílio Transporte Estudantil.</p>
+        </header>
+
+        <!-- Indicador de Passos (Steps) -->
+        <div class="steps-container">
+            <div class="step-wrapper completed">
+                <div class="step-circle">1</div>
+                <span class="step-label">Dados Pessoais</span>
+            </div>
+            <div class="step-line active-line"></div>
+            
+            <div class="step-wrapper active">
+                <div class="step-circle">2</div>
+                <span class="step-label">Dados Acadêmicos</span>
+            </div>
+            <div class="step-line"></div>
+
+            <div class="step-wrapper">
+                <div class="step-circle">3</div>
+                <span class="step-label">Dados do Transporte</span>
+            </div>
+            <div class="step-line"></div>
+
+            <div class="step-wrapper">
+                <div class="step-circle">4</div>
+                <span class="step-label">Documentação</span>
+            </div>
+            <div class="step-line"></div>
+
+            <div class="step-wrapper">
+                <div class="step-circle">5</div>
+                <span class="step-label">Revisão</span>
+            </div>
+        </div>
+
+        <!-- Formulário de Dados Acadêmicos -->
+        <section>
+            <h2 class="form-section-title">Dados Acadêmicos</h2>
+
+            <form action="transporte.html" method="GET">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" name="instituicao" placeholder="Nome da Instituição de Ensino*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="curso" placeholder="Curso*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="semestre" placeholder="Semestre/Período atual*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="duracao" placeholder="Duração do curso*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="dias_transporte" placeholder="Quantos dias você utiliza o transporte?" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Comprovante de Matricula *" readonly style="cursor: pointer;" onclick="document.getElementById('file-matricula').click();">
+                        <i class="fa-solid fa-folder-arrow-up input-icon"></i>
+                        <input type="file" id="file-matricula" name="comprovante_matricula" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Boletim Escolar" readonly style="cursor: pointer;" onclick="document.getElementById('file-boletim').click();">
+                        <i class="fa-solid fa-folder-arrow-up input-icon"></i>
+                        <input type="file" id="file-boletim" name="boletim" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Atestado de Frequência" readonly style="cursor: pointer;" onclick="document.getElementById('file-atestado').click();">
+                        <i class="fa-solid fa-folder-arrow-up input-icon"></i>
+                        <input type="file" id="file-atestado" name="atestado" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Botões de Ação -->
+                <div class="form-actions">
+                    <button type="button" class="btn-voltar" onclick="history.back()">Voltar</button>
+                    <button type="submit" class="btn-avancar">
+                        Avançar <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
