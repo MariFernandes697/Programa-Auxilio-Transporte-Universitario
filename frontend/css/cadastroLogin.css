@@ -1,0 +1,162 @@
+:root {
+    --verde-escuro: #1f3a22;
+    --verde-titulo: #4a6a4a;
+    --verde-claro: #8fa08f;
+    --campo-bg: #f5fff5;
+    --texto-campo: #7f8f7f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    background: #fff;
+    color: var(--verde-claro);
+    border-top: 1px solid #333;
+    min-height: 100vh;
+}
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 5%;
+    background: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
+}
+
+.topo .brasao {
+    width: 34px;
+    height: 38px;
+    flex-shrink: 0;
+}
+
+.topo h1 {
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--verde-titulo);
+}
+
+/* ---------- Conteúdo ---------- */
+main {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 48px 20px 40px;
+}
+
+main h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--verde-claro);
+    margin-bottom: 10px;
+}
+
+main .sub {
+    font-size: 0.8rem;
+    color: var(--verde-claro);
+    margin-bottom: 22px;
+    padding-left: 4px;
+}
+
+/* ---------- Formulário ---------- */
+form .grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 46px;
+}
+
+form input {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4a5a4a;
+    background: var(--campo-bg);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    /* Sombras SOMENTE por dentro, mais fortes no topo */
+    box-shadow:
+            inset 0 4px 5px -1px rgba(0, 0, 0, 0.28),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, 0.06),
+            inset 2px 0 4px -2px rgba(0, 0, 0, 0.12),
+            inset -2px 0 4px -2px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+form input::placeholder {
+    color: var(--texto-campo);
+    font-weight: 500;
+    opacity: 1;
+}
+
+form input:focus {
+    background: #fff;
+    box-shadow:
+            inset 0 4px 5px -1px rgba(31, 58, 34, 0.4),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, 0.06),
+            inset 2px 0 4px -2px rgba(31, 58, 34, 0.2),
+            inset -2px 0 4px -2px rgba(31, 58, 34, 0.2);
+}
+
+/* ---------- Botão ---------- */
+.acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 58px;
+}
+
+button {
+    width: 100%;
+    max-width: 258px;
+    height: 38px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--verde-escuro);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+button:hover { filter: brightness(1.25); }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid var(--verde-titulo); outline-offset: 2px; }
+
+.login {
+    margin-top: 16px;
+    font-size: 0.75rem;
+    color: var(--verde-claro);
+    text-align: center;
+}
+
+.login a {
+    color: var(--verde-claro);
+    text-decoration: underline;
+}
+
+.login a:hover { color: var(--verde-titulo); }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+    .topo h1 { font-size: 0.95rem; }
+    main { padding: 32px 18px 32px; }
+    main h2 { font-size: 1.45rem; }
+    form .grade {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+    .acoes { margin-top: 36px; }
+    button { max-width: 100%; }
+}

@@ -1,22 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-:root{
-    /*Declaração do estilo visual do sistema*/
-    --cor01: #1F3820;
-    --cor02: #DDFADE;
-    --cor03: #929E93;
-    --cor04: #007615;
+:root {
+    --verde-titulo: #4c6a48;
+    --verde-escuro: #1f3a1f;
+    --verde-campo: #f6fff6;
+    --cinza-titulo: #8c9a8c;
+    --cinza-texto: #8a8a8a;
+}
 
-    /*Cores de atenção*/
-    --amarelo: #FFF1C1;
-    --vermelho: #FF7575;
-    --verde: #007615;
-    --branco: #fff;
-    --preto: #000;
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #fff;
+    color: var(--cinza-texto);
+}
 
-    /*Fontes do sistema*/
-    /*Roboto condensed*/
-    --fontCondensada: "Roboto Condensed", sans-serif;
-    /*Roboto regular*/
-    --fontRegular:  "Roboto", sans-serif;
+/* Topo */
+.topo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 70px;
+    padding: 0 55px;
+    background: #fff;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.12);
+}
+.topo__brasao { width: 34px; height: 34px; object-fit: contain; }
+.topo__titulo {
+    font-family: 'Roboto Condensed', 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--verde-titulo);
+}
+
+/* Conteúdo */
+.conteudo {
+    width: 100%;
+    max-width: 725px;
+    padding: 50px 50px 40px;
+}
+.conteudo__titulo {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cinza-titulo);
+    margin-bottom: 14px;
+}
+.conteudo__subtitulo {
+    font-size: 12px;
+    padding-left: 3px;
+    margin-bottom: 24px;
+}
+
+/* Formulário */
+.form__grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 46px;
+    row-gap: 13px;
+}
+.form__grade input {
+    height: 38px;
+    padding: 0 20px;
+    font: 500 14px 'Roboto', Arial, sans-serif;
+    color: #555;
+    background: var(--verde-campo);
+    border: 1px solid #e3ede3;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), inset 0 -2px 4px rgba(0, 0, 0, 0.04);
+    outline: none;
+}
+.form__grade input::placeholder { color: var(--cinza-texto); font-weight: 500; }
+.form__grade input:focus {
+    border-color: var(--verde-titulo);
+    box-shadow: 0 0 0 2px rgba(76, 106, 72, 0.3);
+}
+
+.form__botao {
+    display: block;
+    width: 257px;
+    height: 38px;
+    margin: 59px auto 0;
+    font: 700 14px 'Roboto', Arial, sans-serif;
+    color: #fff;
+    background: var(--verde-escuro);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+.form__botao:hover { filter: brightness(1.25); }
+.form__botao:focus-visible { outline: 2px solid var(--verde-titulo); outline-offset: 2px; }
+
+.form__login {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 12px;
+}
+.form__login a { color: var(--cinza-texto); text-decoration: underline; }
+
+/* Responsivo */
+@media (max-width: 700px) {
+    .topo { padding: 0 20px; }
+    .topo__titulo { font-size: 15px; }
+    .conteudo { padding: 36px 20px; }
+    .form__grade { grid-template-columns: 1fr; }
+    .form__botao { width: 100%; margin-top: 36px; }
 }

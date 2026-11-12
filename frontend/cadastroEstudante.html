@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastre-se | Prefeitura Municipal de Curiúva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cadastroLogin.css">
+</head>
+<body>
+
+<header class="topo">
+    <img src="assets/brasao%20curiuva.svg" width="60px" height="60px" alt="">
+    <h1>Prefeitura Municipal de Curiúva</h1>
+</header>
+
+<main>
+    <h2>Cadastre-se:</h2>
+    <p class="sub">Realize o cadastro para iniciar sua solicitação.</p>
+
+    <form action="#" method="post">
+        <div class="grade">
+            <input type="text" name="nome" placeholder="Nome Completo" aria-label="Nome completo" autocomplete="name" required>
+            <input type="text" name="cpf" placeholder="CPF" aria-label="CPF" inputmode="numeric"
+                   pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" title="Digite um CPF válido, ex.: 000.000.000-00" maxlength="14" required>
+
+            <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+            <input type="tel" name="telefone" placeholder="Telefone" aria-label="Telefone" autocomplete="tel"
+                   inputmode="tel" pattern="[\d\s()\-+]{10,16}" title="Digite um telefone com DDD" required>
+
+            <input type="password" name="senha" placeholder="Senha" aria-label="Senha" autocomplete="new-password" minlength="6" required>
+            <input type="password" name="confirmar_senha" placeholder="Confirmar Senha" aria-label="Confirmar senha" autocomplete="new-password" minlength="6" required>
+        </div>
+
+        <div class="acoes">
+            <button type="submit">Iniciar Solicitação</button>
+            <p class="login">Já possui cadastro? <a href="#">Faça login.</a></p>
+        </div>
+    </form>
+</main>
+
+</body>
+</html>
