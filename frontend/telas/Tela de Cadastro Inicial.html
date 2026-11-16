@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se | Prefeitura Municipal de Curiúva</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cor01: #1F3820;
+            --cor02: #DDFADE;
+            --cor03: #929E93;
+            --cor04: #007615;
+            --branco: #fff;
+            --preto: #000;
+            --fontCondensada: "Roboto Condensed", sans-serif;
+            --fontRegular: "Roboto", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--fontRegular);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: #fafbfc;
+            overflow: hidden;
+        }
+
+        /* Cabeçalho Superior da Página */
+        .top-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            background-color: var(--branco);
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .brasao-header {
+            width: 50px;
+            height: auto;
+        }
+
+        .header-title {
+            font-family: var(--fontCondensada);
+            font-size: 1.3rem;
+            color: var(--cor01);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Container Principal do Formulário */
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 780px;
+            background-color: var(--branco);
+            padding: 40px 50px;
+            border-radius: 16px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 20px rgba(31, 56, 32, 0.05);
+        }
+
+        .register-header {
+            margin-bottom: 25px;
+        }
+
+        .register-title {
+            font-family: var(--fontCondensada);
+            font-size: 2.2rem;
+            color: #555d56;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .register-subtitle {
+            color: var(--cor03);
+            font-size: 0.92rem;
+        }
+
+        /* Grelha de Inputs (2 colunas) */
+        .register-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            background-color: #f7fbf8;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+            outline: none;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: #929E93;
+        }
+
+        .form-group input:focus {
+            border-color: var(--cor04);
+            background-color: var(--branco);
+            box-shadow: 0 0 0 3px rgba(0, 118, 21, 0.08);
+        }
+
+        /* Ações e Rodapé do Formulário */
+        .register-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--cor01);
+            color: var(--branco);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            box-shadow: 0 4px 10px rgba(31, 56, 32, 0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--cor04);
+        }
+
+        .login-redirect {
+            font-size: 0.88rem;
+            color: var(--cor03);
+        }
+
+        .login-redirect a {
+            color: var(--cor01);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .login-redirect a:hover {
+            color: var(--cor04);
+        }
+
+        @media (max-width: 768px) {
+            .register-grid {
+                grid-template-columns: 1fr;
+            }
+            .register-card {
+                padding: 25px 20px;
+            }
+            .top-header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho Institucional -->
+    <header class="top-header">
+<img src="../assets/brasao curiuva.svg" alt="Brasão de Curiúva" class="brasao-header">        <span class="header-title">Prefeitura Municipal de Curiúva</span>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <main class="main-container">
+        <div class="register-card">
+            <div class="register-header">
+                <h1 class="register-title">Cadastre-se:</h1>
+                <p class="register-subtitle">Realize o cadastro para iniciar sua solicitação.</p>
+            </div>
+
+            <form action="dashboardInicial.html" method="POST">
+                <div class="register-grid">
+                    <div class="form-group">
+                        <input type="text" name="nome" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="cpf" placeholder="CPF" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="telefone" placeholder="Telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="senha" placeholder="Senha" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="confirmar_senha" placeholder="Confirmar Senha" required>
+                    </div>
+                </div>
+
+                <div class="register-actions">
+                    <button type="submit" class="btn-submit">Iniciar Solicitação</button>
+                    <p class="login-redirect">Já possui cadastro? <a href="login.html">Faça login.</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitação | Auxílio Transporte Estudantil – Curiúva</title>
+    <title>Solicitação Estudantil - Dados Pessoais | Auxílio Transporte</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,6 @@
             color: var(--cor04);
         }
 
-        /* Item Ativo (Solicitações selecionado) */
         .nav-item.active {
             background-color: var(--cor02);
             color: var(--cor01);
@@ -109,7 +108,7 @@
         /* Área de Conteúdo Principal */
         .main-content {
             flex: 1;
-            padding: 40px 60px;
+            padding: 30px 60px;
             overflow-y: auto;
         }
 
@@ -118,22 +117,22 @@
             font-size: 2.2rem;
             color: #555d56;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         .content-header p {
             color: var(--cor03);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
-        /* Barra de Progresso em Passos (Steps) */
+        /* Barra de Passos (Steps) */
         .steps-container {
             display: flex;
             align-items: center;
             justify-content: center;
             max-width: 700px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             position: relative;
         }
 
@@ -146,8 +145,8 @@
         }
 
         .step-circle {
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 2px solid var(--cor03);
             background-color: var(--branco);
@@ -156,29 +155,18 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-family: var(--fontCondensada);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             transition: all 0.3s ease;
         }
 
         .step-label {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--cor03);
             font-weight: 500;
             text-align: center;
             white-space: nowrap;
-        }
-
-        /* Estados dos Passos */
-        .step-wrapper.completed .step-circle {
-            border-color: var(--cor01);
-            background-color: var(--cor01);
-            color: var(--branco);
-        }
-        .step-wrapper.completed .step-label {
-            color: var(--cor01);
-            font-weight: 600;
         }
 
         .step-wrapper.active .step-circle {
@@ -196,44 +184,42 @@
             flex: 1;
             height: 2px;
             background-color: #d1d8d2;
-            margin: 0 -15px 25px -15px;
+            margin: 0 -15px 22px -15px;
             z-index: 1;
         }
 
-        .step-line.active-line {
-            background-color: var(--cor01);
-        }
-
-        /* Seção do Formulário */
+        /* Título da Seção */
         .form-section-title {
             font-family: var(--fontCondensada);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: #555d56;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
+        /* Grelha de Formulário */
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 900px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 25px;
+            max-width: 950px;
+            margin-bottom: 25px;
         }
 
         .form-group {
             position: relative;
         }
 
-        .form-group input, .form-group select {
+        .form-group input {
             width: 100%;
-            padding: 14px 18px;
+            padding: 13px 16px;
             background-color: #f7fbf8;
             border: 1px solid #e1e8ed;
             border-radius: 12px;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: #2c3e50;
             outline: none;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
             transition: all 0.3s ease;
         }
 
@@ -241,53 +227,28 @@
             color: #929E93;
         }
 
-        .form-group input:focus, .form-group select:focus {
+        .form-group input:focus {
             border-color: var(--cor04);
             background-color: var(--branco);
             box-shadow: 0 0 0 3px rgba(0, 118, 21, 0.08);
         }
 
-        .form-group i.input-icon {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--cor03);
-            font-size: 1.1rem;
-            pointer-events: none;
-        }
-
-        /* Botões de Navegação Inferiores */
+        /* Botões de Ação */
         .form-actions {
             display: flex;
             justify-content: flex-end;
             gap: 15px;
-            max-width: 900px;
-        }
-
-        .btn-voltar {
-            padding: 12px 28px;
-            background-color: var(--branco);
-            color: #2c3e50;
-            border: 1px solid #d1d8d2;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-voltar:hover {
-            background-color: #f0f3f1;
+            max-width: 950px;
+            margin-top: 10px;
         }
 
         .btn-avancar {
-            padding: 12px 32px;
+            padding: 11px 30px;
             background-color: var(--cor01);
             color: var(--branco);
             border: none;
             border-radius: 10px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             display: flex;
@@ -301,7 +262,6 @@
             background-color: var(--cor04);
         }
 
-        /* Responsividade */
         @media (max-width: 900px) {
             .form-grid {
                 grid-template-columns: 1fr;
@@ -337,24 +297,24 @@
                 font-size: 0.85rem;
             }
             .main-content {
-                padding: 25px 20px;
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Menu Lateral (Sidebar) -->
+    <!-- Menu Lateral -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <img src="assets/brasao curiuva.svg" alt="Brasão de Curiúva" class="brasao-menu" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/e/e5/BrasaoCuriuvaParana.png'">
+            <img src="../assets/brasao curiuva.svg" alt="Brasão de Curiúva" class="brasao-menu">
         </div>
 
         <nav class="sidebar-nav">
-            <a href="inicio.html" class="nav-item">
+            <a href="dashboardInicial.html" class="nav-item">
                 <i class="fa-solid fa-house"></i> Início
             </a>
-            <a href="solicitacao.html" class="nav-item active">
+            <a href="cadastroEstudante2.html" class="nav-item active">
                 <i class="fa-solid fa-file-pen"></i> Solicitações
             </a>
             <a href="documentos.html" class="nav-item">
@@ -381,13 +341,13 @@
 
         <!-- Indicador de Passos (Steps) -->
         <div class="steps-container">
-            <div class="step-wrapper completed">
+            <div class="step-wrapper active">
                 <div class="step-circle">1</div>
                 <span class="step-label">Dados Pessoais</span>
             </div>
-            <div class="step-line active-line"></div>
+            <div class="step-line"></div>
             
-            <div class="step-wrapper active">
+            <div class="step-wrapper">
                 <div class="step-circle">2</div>
                 <span class="step-label">Dados Acadêmicos</span>
             </div>
@@ -411,47 +371,33 @@
             </div>
         </div>
 
-        <!-- Formulário de Dados Acadêmicos -->
+        <!-- Seção: Dados Pessoais -->
         <section>
-            <h2 class="form-section-title">Dados Acadêmicos</h2>
+            <h2 class="form-section-title">Dados Pessoais</h2>
 
-            <form action="transporte.html" method="GET">
+            <form action="cadastroEstudante2.html" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
-                        <input type="text" name="instituicao" placeholder="Nome da Instituição de Ensino*" required>
+                        <input type="text" name="nome_completo" placeholder="Nome Completo" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="curso" placeholder="Curso*" required>
+                        <input type="text" name="data_nascimento" placeholder="Data de Nascimento" required onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="semestre" placeholder="Semestre/Período atual*" required>
+                        <input type="text" name="cpf" placeholder="CPF" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="duracao" placeholder="Duração do curso*" required>
+                        <input type="tel" name="telefone" placeholder="Telefone" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="dias_transporte" placeholder="Quantos dias você utiliza o transporte?" required>
+                        <input type="email" name="email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Comprovante de Matricula *" readonly style="cursor: pointer;" onclick="document.getElementById('file-matricula').click();">
-                        <i class="fa-solid fa-folder-arrow-up input-icon"></i>
-                        <input type="file" id="file-matricula" name="comprovante_matricula" style="display: none;">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Boletim Escolar" readonly style="cursor: pointer;" onclick="document.getElementById('file-boletim').click();">
-                        <i class="fa-solid fa-folder-arrow-up input-icon"></i>
-                        <input type="file" id="file-boletim" name="boletim" style="display: none;">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Atestado de Frequência" readonly style="cursor: pointer;" onclick="document.getElementById('file-atestado').click();">
-                        <i class="fa-solid fa-folder-arrow-up input-icon"></i>
-                        <input type="file" id="file-atestado" name="atestado" style="display: none;">
+                        <input type="text" name="endereco" placeholder="Endereço" required>
                     </div>
                 </div>
 
-                <!-- Botões de Ação -->
                 <div class="form-actions">
-                    <button type="button" class="btn-voltar" onclick="history.back()">Voltar</button>
                     <button type="submit" class="btn-avancar">
                         Avançar <i class="fa-solid fa-arrow-right"></i>
                     </button>

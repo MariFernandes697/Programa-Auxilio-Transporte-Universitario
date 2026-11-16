@@ -45,7 +45,6 @@
     text-align: center;
     color: #fff;
     background-color: var(--verde-medio);
-    /* efeito de facetas (low-poly) feito só com gradientes */
     background-image:
       linear-gradient(135deg, rgba(0,0,0,.28) 0 25%, transparent 25% 100%),
       linear-gradient(225deg, rgba(255,255,255,.07) 0 30%, transparent 30% 100%),
@@ -55,8 +54,8 @@
   }
 
   .brasao {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: auto;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,.35));
   }
 
@@ -211,8 +210,7 @@
 
     <!-- Lado esquerdo -->
     <section class="painel">
-      <!-- Troque "brasao.png" pelo arquivo do brasão do município -->
-    <img class="brasao" src="assets/brasao curiuva.svg" alt="Brasão do município de Curiúva">
+      <img src="../assets/brasao curiuva.svg" alt="Brasão de Curiúva" class="brasao">
       <div class="prefeitura">
         <small>Prefeitura Municipal de</small>
         <strong>Curiúva</strong>
