@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solicitação Estudantil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/solicitacao.css">
+</head>
+<body>
+<div class="layout">
+
+    <!-- Menu lateral -->
+    <aside class="menu">
+        <img class="brasao" src="assets/brasao%20curiuva.svg" alt="Brasão do município">
+
+        <nav>
+            <a href="inicio.html" class="item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/></svg>
+                <span>Início</span>
+            </a>
+            <a href="solicitacao.html" class="item ativo" aria-current="page">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9.5 17.5H6.5v-3L14 7l3 3zM18.2 8.8l-1-1 1-1a.7.7 0 0 1 1 0l.9 1a.7.7 0 0 1 0 1z"/></svg>
+                <span>Solicitações</span>
+            </a>
+            <a href="documentos.html" class="item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/></svg>
+                <span>Documentos</span>
+            </a>
+            <a href="perfil.html" class="item">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-8 2-8 5v3h16v-3c0-3-4-5-8-5z"/></svg>
+                <span>Perfil</span>
+            </a>
+        </nav>
+
+        <a href="login.html" class="item sair">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l1.4-1.4-2.6-2.6H20v-2H8.8l2.6-2.6L10 7l-5 5zM4 4h8V2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8v-2H4z" transform="translate(24 0) scale(-1 1)"/></svg>
+            <span>Sair</span>
+        </a>
+    </aside>
+
+    <!-- ========== Conteúdo ========== -->
+
+    <main>
+        <div class="conteudo">
+            <h1>Solicitação Estudantil</h1>
+            <p class="sub">Preencha os campos solicitados abaixo para solicitar seu Auxílio Transporte Estudantil.</p>
+
+            <ol class="etapas" aria-label="Etapas da solicitação">
+                <li class="etapa">
+                    <span class="bola">1</span>
+                    <span class="nome">Dados<br>Pessoais</span>
+                </li>
+
+                <li class="etapa atual" aria-current="step">
+                    <span class="bola">2</span>
+                    <span class="nome">Dados<br>Acadêmicos</span>
+                </li>
+
+                <li class="etapa">
+                    <span class="bola">3</span>
+                    <span class="nome">Dados do<br>Transporte</span>
+                </li>
+
+                <li class="etapa">
+                    <span class="bola">4</span>
+                    <span class="nome">Documentação</span>
+                </li>
+
+                <li class="etapa">
+                    <span class="bola">5</span>
+                    <span class="nome">Revisão</span>
+                </li>
+            </ol>
+
+            <h2>Dados Acadêmicos</h2>
+
+            <form id="formDadosAcademicos" novalidate>
+                <div class="grade">
+
+                    <input
+                            type="text"
+                            name="instituicao"
+                            id="instituicao"
+                            placeholder="Nome da Instituição de Ensino*"
+                            aria-label="Nome da Instituição de Ensino"
+                            required
+                    >
+
+                    <input
+                            type="text"
+                            name="curso"
+                            id="curso"
+                            placeholder="Curso*"
+                            aria-label="Curso"
+                            required
+                    >
+
+                    <input
+                            type="text"
+                            name="semestre"
+                            id="semestre"
+                            placeholder="Semestre/Período atual*"
+                            aria-label="Semestre ou período atual"
+                            required
+                    >
+
+                    <input
+                            type="text"
+                            name="duracao"
+                            id="duracao"
+                            placeholder="Duração do curso*"
+                            aria-label="Duração do curso"
+                            required
+                    >
+
+                    <div class="campo-upload">
+                        <input
+                                type="file"
+                                name="comprovanteMatricula"
+                                id="comprovanteMatricula"
+                                accept=".pdf,.jpg,.jpeg,.png"
+                                required
+                        >
+                        <label for="comprovanteMatricula">
+                            <span>Comprovante de Matrícula *</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14-5-5h3V8h4v4h3l-5 5z"/>
+                            </svg>
+                        </label>
+                    </div>
+
+                    <div class="campo-upload">
+                        <input
+                                type="file"
+                                name="boletimEscolar"
+                                id="boletimEscolar"
+                                accept=".pdf,.jpg,.jpeg,.png"
+                        >
+                        <label for="boletimEscolar">
+                            <span>Boletim Escolar</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14-5-5h3V8h4v4h3l-5 5z"/>
+                            </svg>
+                        </label>
+                    </div>
+
+                    <div class="campo-upload">
+                        <input
+                                type="file"
+                                name="atestadoFrequencia"
+                                id="atestadoFrequencia"
+                                accept=".pdf,.jpg,.jpeg,.png"
+                        >
+                        <label for="atestadoFrequencia">
+                            <span>Atestado de Frequência</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14-5-5h3V8h4v4h3l-5 5z"/>
+                            </svg>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="acoes">
+                    <button type="button" class="botao-voltar" onclick="window.location.href='dadosPessoais.html'">
+                        Voltar
+                    </button>
+
+                    <button type="submit">
+                        Avançar <span aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script src="js/dadosAcademicos.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revisão da Solicitação</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/solicitacao.css">
+    <link rel="stylesheet" href="css/revisao.css">
+</head>
+
+<body>
+<div class="layout">
+
+    <!-- Menu lateral -->
+    <aside class="menu">
+        <img class="brasao" src="assets/brasao%20curiuva.svg" alt="Brasão do município">
+
+        <nav>
+            <a href="inicio.html" class="item">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"/>
+                </svg>
+                <span>Início</span>
+            </a>
+
+            <a href="solicitacao.html" class="item ativo" aria-current="page">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9.5 17.5H6.5v-3L14 7l3 3zM18.2 8.8l-1-1 1-1a.7.7 0 0 1 1 0l.9 1a.7.7 0 0 1 0 1z"/>
+                </svg>
+                <span>Solicitações</span>
+            </a>
+
+            <a href="documentos.html" class="item">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8z"/>
+                </svg>
+                <span>Documentos</span>
+            </a>
+
+            <a href="perfil.html" class="item">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4 0-8 2-8 5v3h16v-3c0-3-4-5-8-5z"/>
+                </svg>
+                <span>Perfil</span>
+            </a>
+        </nav>
+
+        <a href="login.html" class="item sair">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 17l1.4-1.4-2.6-2.6H20v-2H8.8l2.6-2.6L10 7l-5 5zM4 4h8V2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8v-2H4z" transform="translate(24 0) scale(-1 1)"/>
+            </svg>
+            <span>Sair</span>
+        </a>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <div class="conteudo">
+
+            <h1>Solicitação Estudantil</h1>
+
+            <p class="sub">
+                Confira os dados abaixo antes de enviar sua solicitação.
+            </p>
+
+            <!-- Etapas -->
+            <ol class="etapas" aria-label="Etapas da solicitação">
+
+                <li class="etapa">
+                    <span class="bola">1</span>
+                    <span class="nome">Dados<br>Pessoais</span>
+                </li>
+
+                <li class="etapa">
+                    <span class="bola">2</span>
+                    <span class="nome">Dados<br>Acadêmicos</span>
+                </li>
+
+                <li class="etapa">
+                    <span class="bola">3</span>
+                    <span class="nome">Dados do<br>Transporte</span>
+                </li>
+
+                <li class="etapa">
+                    <span class="bola">4</span>
+                    <span class="nome">Documentação</span>
+                </li>
+
+                <li class="etapa atual" aria-current="step">
+                    <span class="bola">5</span>
+                    <span class="nome">Revisão</span>
+                </li>
+
+            </ol>
+
+            <h2>Revisão</h2>
+
+            <!-- Cartões de revisão -->
+            <div class="grade-revisao">
+
+                <!-- Dados pessoais -->
+                <section class="cartao-revisao">
+                    <div class="titulo-cartao">
+                        <h3>Dados Pessoais</h3>
+                        <a type="button" onclick="editarEtapa('dadosPessoais.html')">
+                            Editar
+                        </a>
+                    </div>
+
+                    <div class="informacoes">
+                        <p>Nome: <span id="revisaoNome">Não informado</span></p>
+                        <p>CPF: <span id="revisaoCpf">Não informado</span></p>
+                        <p>Telefone: <span id="revisaoTelefone">Não informado</span></p>
+                        <p>E-mail: <span id="revisaoEmail">Não informado</span></p>
+                    </div>
+                </section>
+
+                <!-- Dados acadêmicos -->
+                <section class="cartao-revisao">
+                    <div class="titulo-cartao">
+                        <h3>Dados Acadêmicos</h3>
+                        <a type="button" onclick="editarEtapa('dadosAcademicos.html')">
+                            Editar
+                        </a>
+                    </div>
+
+                    <div class="informacoes">
+                        <p>Instituição: <span id="revisaoInstituicao">Não informado</span></p>
+                        <p>Curso: <span id="revisaoCurso">Não informado</span></p>
+                        <p>Semestre/Período: <span id="revisaoSemestre">Não informado</span></p>
+                        <p>Duração do curso: <span id="revisaoDuracao">Não informado</span></p>
+                    </div>
+                </section>
+
+                <!-- Dados do transporte -->
+                <section class="cartao-revisao">
+                    <div class="titulo-cartao">
+                        <h3>Dados do Transporte</h3>
+                        <a type="button" onclick="editarEtapa('transporte.html')">
+                            Editar
+                        </a>
+                    </div>
+
+                    <div class="informacoes">
+                        <p>Tipo de transporte: <span id="revisaoTipoTransporte">Não informado</span></p>
+                        <p>Dias presenciais: <span id="revisaoFrequencia">Não informado</span></p>
+                        <p>Valor do auxílio: <span id="revisaoValor">Não informado</span></p>
+                        <p>Chave Pix: <span id="revisaoPix">Não informado</span></p>
+                    </div>
+                </section>
+
+                <!-- Documentação -->
+                <section class="cartao-revisao">
+                    <div class="titulo-cartao">
+                        <h3>Documentação</h3>
+                        <a type="button" onclick="editarEtapa('documentos.html')">
+                            Editar
+                        </a>
+                    </div>
+
+                    <div class="informacoes">
+                        <p>RG e CPF: <span id="revisaoIdentificacao">Não informado</span></p>
+                        <p>Comprovante de residência: <span id="revisaoResidencia">Não informado</span></p>
+                        <p>Comprovantes de renda: <span id="revisaoRenda">Não informado</span></p>
+                        <p>Certidão negativa de débitos: <span id="revisaoCertidao">Não informado</span></p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Declaração -->
+            <div class="declaracao">
+                <input type="checkbox" id="confirmacao">
+                <label for="confirmacao">
+                    Declaro que as informações e os documentos enviados são verdadeiros.
+                </label>
+            </div>
+
+            <!-- Ações -->
+            <div class="acoes">
+                <button
+                        type="button"
+                        class="botao-voltar"
+                        onclick="window.location.href='documentacao.html'"
+                >
+                    Voltar
+                </button>
+
+                <button type="button" id="enviarSolicitacao">
+                    Enviar solicitação
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<script src="js/revisao.js" defer></script>
+</body>
+</html>

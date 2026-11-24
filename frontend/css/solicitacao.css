@@ -1,0 +1,356 @@
+:root {
+    --verde-escuro: #1f3a22;
+    --verde-titulo: #4a6a4a;
+    --verde-claro: #8fa08f;
+    --campo-bg: #f5fff5;
+    --texto-campo: #7f8f7f;
+    --menu-texto: #8d908d;
+    --linha: #b9c4b9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    background: #fff;
+    color: var(--verde-claro);
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+    min-height: 100vh;
+}
+
+.layout {
+    display: flex;
+    min-height: calc(100vh - 1px);
+}
+
+/* ---------- Menu lateral ---------- */
+.menu {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 66px 26px 40px;
+    background: #fff;
+    box-shadow: 1px 0 6px rgba(0, 0, 0, 0.07);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.menu .brasao {
+    width: 76px;
+    height: auto;
+    align-self: center;
+    margin-bottom: 52px;
+}
+
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--menu-texto);
+    text-decoration: none;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--menu-texto);
+    flex-shrink: 0;
+}
+
+.item:hover { background: #f5fff5; }
+
+.item.ativo {
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+}
+
+.item:focus-visible { outline: 2px solid var(--verde-titulo); outline-offset: 2px; }
+
+.menu .sair { margin-top: auto; }
+
+/* ---------- Conteúdo ---------- */
+main {
+    flex: 1;
+    min-width: 0;
+    padding: 84px 40px 48px 52px;
+}
+
+.conteudo {
+    width: 100%;
+    max-width: 580px;
+    margin-left: 200px;
+}
+
+h1 {
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-size: 1.95rem;
+    font-weight: 700;
+    color: var(--verde-claro);
+    margin-bottom: 10px;
+}
+
+.sub {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--verde-claro);
+    margin-bottom: 38px;
+}
+
+/* ---------- Etapas ---------- */
+.etapas {
+    list-style: none;
+    display: flex;
+    margin-bottom: 48px;
+}
+
+.etapa {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.etapa:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: calc(50% + 27px);
+    width: calc(100% - 54px);
+    height: 1px;
+    background: var(--linha);
+}
+
+.bola {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--verde-claro);
+    background: #fff;
+    border: 1px solid var(--linha);
+}
+
+.etapa.atual .bola {
+    background: var(--verde-escuro);
+    border-color: var(--verde-escuro);
+    color: #fff;
+    font-weight: 400;
+}
+
+.etapa .nome {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--verde-claro);
+}
+
+h2 {
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--verde-claro);
+    margin-bottom: 18px;
+}
+
+/* ---------- Formulário ---------- */
+form .grade {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 36px;
+}
+
+form input {
+    width: 100%;
+    height: 38px;
+    padding: 0 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4a5a4a;
+    background: var(--campo-bg);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    /* Sombras SOMENTE por dentro, mais fortes no topo */
+    box-shadow:
+            inset 0 4px 5px -1px rgba(0, 0, 0, 0.28),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, 0.06),
+            inset 2px 0 4px -2px rgba(0, 0, 0, 0.12),
+            inset -2px 0 4px -2px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+form input::placeholder {
+    color: var(--texto-campo);
+    font-weight: 500;
+    opacity: 1;
+}
+
+form input:focus {
+    background: #fff;
+    box-shadow:
+            inset 0 4px 5px -1px rgba(31, 58, 34, 0.4),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, 0.06),
+            inset 2px 0 4px -2px rgba(31, 58, 34, 0.2),
+            inset -2px 0 4px -2px rgba(31, 58, 34, 0.2);
+}
+
+form input.erro {
+    box-shadow:
+            inset 0 4px 5px -1px rgba(176, 48, 48, 0.45),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, 0.06),
+            inset 2px 0 4px -2px rgba(176, 48, 48, 0.25),
+            inset -2px 0 4px -2px rgba(176, 48, 48, 0.25);
+}
+
+/* ---------- Botão ---------- */
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 44px;
+}
+
+button {
+    width: 124px;
+    height: 36px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--verde-escuro);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+button:hover { filter: brightness(1.25); }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 2px solid var(--verde-titulo); outline-offset: 2px; }
+
+
+/* Campos para anexar documentos */
+.campo-upload {
+    width: 100%;
+    min-width: 0;
+}
+
+.campo-upload input[type="file"] {
+    display: none;
+}
+
+.campo-upload label {
+    box-sizing: border-box;
+    width: 100%;
+    height: 38px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--campo-bg);
+    border-radius: 10px;
+    color: var(--texto-campo);
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+
+    box-shadow:
+            inset 0 4px 5px -1px rgba(0, 0, 0, .28),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, .06),
+            inset 2px 0 4px -2px rgba(0, 0, 0, .12),
+            inset -2px 0 4px -2px rgba(0, 0, 0, .12);
+}
+
+.campo-upload label svg {
+    width: 17px;
+    height: 17px;
+    fill: var(--verde-claro);
+    flex-shrink: 0;
+}
+
+.campo-upload label:hover {
+    filter: brightness(.97);
+}
+
+/* Botão Voltar */
+.acoes .botao-voltar {
+    background: #fff;
+    color: var(--verde-escuro);
+    border: 1px solid var(--verde-escuro);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .18);
+    margin-right: 15px;
+}
+
+.acoes .botao-voltar:hover {
+    background: var(--campo-bg);
+}
+
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 960px) {
+    .layout { flex-direction: column; }
+
+    .menu {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 20px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu .brasao { width: 38px; margin: 0; flex-shrink: 0; }
+    .menu nav { flex-direction: row; gap: 6px; flex: 1; overflow-x: auto; }
+    .menu .sair { margin-top: 0; }
+    .item { padding: 0 12px; height: 40px; white-space: nowrap; }
+
+    main { padding: 40px 24px 40px; }
+    .conteudo { max-width: 640px; margin: 0 auto; }
+}
+
+@media (max-width: 640px) {
+    .item span { display: none; }
+    .item { padding: 0 10px; }
+
+    main { padding: 32px 18px 32px; }
+    h1 { font-size: 1.55rem; }
+    .sub { margin-bottom: 28px; }
+
+    .etapas { margin-bottom: 36px; }
+    .bola { width: 38px; height: 38px; font-size: 1.15rem; }
+    .etapa:not(:last-child)::after { top: 19px; left: calc(50% + 19px); width: calc(100% - 38px); }
+    .etapa .nome { font-size: 0.56rem; margin-top: 8px; }
+
+    h2 { font-size: 1.25rem; }
+
+    form .grade { grid-template-columns: 1fr; gap: 14px; }
+    .acoes { margin-top: 32px; }
+    button { width: 100%; }
+}

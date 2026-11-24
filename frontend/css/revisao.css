@@ -1,0 +1,129 @@
+
+/* Grade dos cartões */
+.grade-revisao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+}
+
+/* Cartões */
+.cartao-revisao {
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #f7fff7;
+
+    box-shadow:
+            inset 0 3px 5px -2px rgba(0, 0, 0, .22),
+            inset 0 -2px 4px -2px rgba(0, 0, 0, .06),
+            0 2px 4px rgba(0, 0, 0, .08);
+}
+
+/* Título e botão Editar */
+.titulo-cartao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 7px;
+}
+
+.titulo-cartao h3 {
+    margin: 0;
+    color: var(--verde-escuro);
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.titulo-cartao a{
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--verde-escuro);
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Informações */
+.informacoes p {
+    margin: 3px 0;
+    color: var(--texto-campo);
+    font-size: 9px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.informacoes span {
+    color: var(--verde-titulo);
+}
+
+/* Declaração */
+.declaracao {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+    color: var(--texto-campo);
+    font-size: 9px;
+}
+
+.declaracao input {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    accent-color: var(--verde-escuro);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.declaracao label {
+    cursor: pointer;
+}
+
+/* Botões */
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.acoes #enviarSolicitacao {
+    min-width: 125px;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    .grade-revisao {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-revisao {
+        padding: 12px;
+    }
+
+    .informacoes p {
+        font-size: 10px;
+    }
+
+    .declaracao {
+        align-items: flex-start;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 400px) {
+    .acoes {
+        gap: 8px;
+    }
+
+    .acoes button {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}

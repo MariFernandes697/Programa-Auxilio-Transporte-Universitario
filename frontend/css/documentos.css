@@ -1,0 +1,152 @@
+
+/* Texto de orientação */
+.orientacao {
+    margin: -12px 0 10px;
+    color: var(--texto-campo);
+    font-size: 10px;
+}
+
+.orientacao a {
+    color: var(--verde-titulo);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Tabela de documentos */
+.tabela-documentos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Linhas */
+.linha-documento {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.65fr;
+    align-items: center;
+    height:40px;
+    min-height: 27px;
+    padding: 0 14px;
+
+    background: #fff;
+    border-radius: 8px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .12);
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: var(--texto-campo);
+}
+
+/* Cabeçalho */
+.linha-documento.cabecalho {
+    min-height: 27px;
+    background: var(--verde-escuro);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+}
+
+.linha-documento.cabecalho span:nth-child(2),
+.linha-documento.cabecalho span:nth-child(3) {
+    text-align: center;
+}
+
+/* Nome dos documentos */
+.nome-documento {
+    font-weight: 500;
+}
+
+/* Status */
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status.enviado {
+    color: #18843a;
+}
+
+.status.pendente {
+    color: #e5a900;
+}
+
+.icone-status {
+    width: 12px;
+    height: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.status.enviado .icone-status {
+    background: #18843a;
+    color: #fff;
+}
+
+.status.pendente .icone-status {
+    background: #f2b900;
+    color: #fff;
+}
+
+/* Botões de ação dos documentos */
+.acao-documento {
+    display: flex;
+    justify-content: center;
+}
+
+.botao-documento {
+    width: 70px;
+    min-height: 15px;
+    border: none;
+    border-radius: 7px;
+    background: var(--verde-escuro);
+    color: #fff;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .18);
+}
+
+.botao-documento:hover {
+    filter: brightness(1.12);
+}
+
+/* Botões inferiores */
+#botaoAvancar {
+    min-width: 100px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .linha-documento {
+        grid-template-columns: 1.1fr 0.8fr 0.7fr;
+        padding: 0 8px;
+        font-size: 9px;
+    }
+
+    .status {
+        font-size: 9px;
+        gap: 4px;
+    }
+
+    .botao-documento {
+        width: 62px;
+        font-size: 9px;
+    }
+
+    .nome-documento {
+        overflow-wrap: anywhere;
+    }
+}
